@@ -26,17 +26,8 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/main", name="main")
-     */
-    public function index()
-    {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/MainController.php',
-        ]);
-    }
-
-    /**
+     * Request all categories
+     *
      * @Route("/categories", name="categories")
      * @param CategoryRepository $categoryRepository
      * @return JsonResponse
@@ -50,6 +41,8 @@ class MainController extends AbstractController
     }
 
     /**
+     * Request all knowledges
+     *
      * @Route("/all", name="all")
      * @param KnowledgeRepository $knowledgeRepository
      * @return JsonResponse
@@ -62,6 +55,8 @@ class MainController extends AbstractController
     }
 
     /**
+     * Request knowledges by category
+     *
      * @Route("/knowledge/{id}", name="knowledge")
      * @param Category $category
      * @return JsonResponse
