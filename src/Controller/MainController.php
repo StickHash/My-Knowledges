@@ -51,7 +51,7 @@ class MainController extends AbstractController
     {
         $knowledges = $knowledgeRepository->findAll();
 
-        return $this->json($this->serializer->serialize($knowledges, 'json', ['attributes' => ['name', 'imgUrl', 'category' => ['name']]]));
+        return $this->json($this->serializer->serialize($knowledges, 'json', ['attributes' => ['name', 'imgUrl', 'description', 'extLink', 'category' => ['name']]]));
     }
 
     /**
@@ -66,6 +66,6 @@ class MainController extends AbstractController
 
         $knowledges = $category->getKnowledges();
 
-        return $this->json($this->serializer->serialize($knowledges, 'json', ['attributes' => ['name', 'category' => ['name']]]));
+        return $this->json($this->serializer->serialize($knowledges, 'json', ['attributes' => ['name', 'imgUrl', 'description', 'extLink', 'category' => ['name']]]));
     }
 }
