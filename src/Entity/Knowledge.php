@@ -31,6 +31,16 @@ class Knowledge
      */
     private $imgUrl;
 
+    /**
+     * @ORM\Column(type="string", length=800, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="string", length=500, nullable=true)
+     */
+    private $extLink;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +78,30 @@ class Knowledge
     public function setImgUrl(?string $imgUrl): self
     {
         $this->imgUrl = $imgUrl;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getExtLink(): ?string
+    {
+        return $this->extLink;
+    }
+
+    public function setExtLink(?string $extLink): self
+    {
+        $this->extLink = $extLink;
 
         return $this;
     }
