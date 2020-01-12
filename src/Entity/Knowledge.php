@@ -4,12 +4,14 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\KnowledgeRepository")
  *  @ApiResource(
  *     collectionOperations={"get","post"},
- *     itemOperations={"get"}
+ *     itemOperations={"get"},
+ *     normalizationContext={"groups"={"category"}}
  * )
  */
 class Knowledge
@@ -18,31 +20,37 @@ class Knowledge
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"category"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"category"})
      */
     private $name;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category")
+     * @Groups({"category"})
      */
     private $category;
 
     /**
      * @ORM\Column(type="string", length=500, nullable=true)
+     * @Groups({"category"})
      */
     private $imgUrl;
 
     /**
      * @ORM\Column(type="string", length=800, nullable=true)
+     * @Groups({"category"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=500, nullable=true)
+     * @Groups({"category"})
      */
     private $extLink;
 
