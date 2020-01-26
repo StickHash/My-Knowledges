@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\KnowledgeRepository")
- *  @ApiResource(
+ * @ApiResource(
  *     collectionOperations={"get","post"},
  *     itemOperations={"get"},
  *     normalizationContext={"groups"={"category"}}
@@ -53,6 +54,7 @@ class Knowledge
      * @Groups({"category"})
      */
     private $extLink;
+
 
     public function getId(): ?int
     {
@@ -118,4 +120,5 @@ class Knowledge
 
         return $this;
     }
+    
 }

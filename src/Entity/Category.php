@@ -35,6 +35,7 @@ class Category
      */
     private $knowledges;
 
+
     public function getId(): ?int
     {
         return $this->id;
